@@ -269,7 +269,8 @@ class BatchOptimizer(VisualizationMixin):
             dtype=tf.complex64,
         )
 
-    @tf.function
+
+    # @tf.function
     def batch_construct_block_operators(
         self, betas_rho, betas_angle, final_disp_rho, final_disp_angle, phis, thetas
     ):
@@ -537,7 +538,7 @@ class BatchOptimizer(VisualizationMixin):
         )
         fids = initial_fids
         callback_fun(self, fids, 0, 0)
-        try:  # will catch keyboard inturrupt
+        try:  # will catch keyboard interrupt
             for epoch in range(self.parameters["epochs"] + 1)[1:]:
                 for _ in range(self.parameters["epoch_size"]):
                     with tf.GradientTape() as tape:

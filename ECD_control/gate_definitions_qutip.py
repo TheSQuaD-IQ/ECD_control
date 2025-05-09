@@ -98,7 +98,7 @@ def plot_wigner_data(
     if ax is None:
         plt.figure()
         ax = plt.gca()
-    ax.imshow(
+    im = ax.imshow(
         W,
         origin="lower",
         extent=extent,
@@ -107,6 +107,7 @@ def plot_wigner_data(
         vmax=vmax,
         interpolation=None,
     )
-    # plt.colorbar()
     if grid:
         ax.grid()
+    # Add the colorbar
+    plt.colorbar(im, ax=ax)
